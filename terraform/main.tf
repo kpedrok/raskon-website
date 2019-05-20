@@ -96,10 +96,12 @@ resource "aws_cloudfront_distribution" "www_distribution" {
     cached_methods         = ["GET", "HEAD"]
 
     // This needs to match the `origin_id` above.
+    # target_origin_id = "${var.www_domain_name}"
     target_origin_id = "${var.www_domain_name}"
-    min_ttl          = 0
-    default_ttl      = 3600
-    max_ttl          = 86400
+
+    min_ttl     = 0
+    default_ttl = 3600
+    max_ttl     = 86400
 
     forwarded_values {
       query_string = false
@@ -108,6 +110,27 @@ resource "aws_cloudfront_distribution" "www_distribution" {
         forward = "none"
       }
     }
+  }
+
+  ordered_cache_behavior {
+    path_pattern     = "*.html"
+    allowed_methods  = ["GET", "HEAD", "OPTIONS"]
+    cached_methods   = ["GET", "HEAD"]
+    target_origin_id = "${var.www_domain_name}"
+
+    forwarded_values {
+      query_string = false
+
+      cookies {
+        forward = "none"
+      }
+    }
+
+    min_ttl                = 0
+    default_ttl            = 60
+    max_ttl                = 300
+    compress               = true
+    viewer_protocol_policy = "redirect-to-https"
   }
 
   // Here we're ensuring we can hit this distribution using www.runatlantis.io
@@ -120,6 +143,7 @@ resource "aws_cloudfront_distribution" "www_distribution" {
       restriction_type = "none"
     }
   }
+  price_class = "PriceClass_200"
   // Here's where our certificate is loaded in!
   viewer_certificate {
     acm_certificate_arn = "${aws_acm_certificate.certificate.arn}"
@@ -142,7 +166,7 @@ resource "aws_route53_record" "www" {
   alias = {
     name                   = "${aws_cloudfront_distribution.www_distribution.domain_name}"
     zone_id                = "${aws_cloudfront_distribution.www_distribution.hosted_zone_id}"
-    evaluate_target_health = false
+    evaluate_target_health = true
   }
 }
 

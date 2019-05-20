@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Raspro Data Exporter</title>
+</head>
+
+<body>
+    <h1>Raspro Data Exporter</h1>
+    <meta charset="UTF-8">
+    <p>Ol&aacute;, selecione os filtros para exporta&ccedil;&atilde;o</p>
+    <p>OBS: a exporta&ccedil;&atilde;o leva em torno de 60 segundos e será enviada para logistica@taglivros.com.br</p>
+    <form id="form" method="GET" action="">
+        <div>
+            <input type="text" name="categoria_1" placeholder="Inéditos">
+            <input type="text" name="categoria_2" placeholder="2018-2">
+            <button type="submit">Gerar</button>
+        </div>
+    </form>
+</body>
+<script>
+    document.getElementById("form").action = 'https://api.' + window.location.hostname.replace('www.', '') + '/generateCsv'
+</script>
+
+</html>

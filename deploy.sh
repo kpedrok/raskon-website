@@ -9,7 +9,7 @@ aws s3 ls
     rm tfplan)
 
 # aws s3 sync V3/site s3://`(cd terraform; terraform output site_bucket)`
-aws s3 sync site s3://www.raspro.com.br
+aws s3 sync src/site s3://www.raspro.com.br
 # aws s3 sync site s3://`(cd terraform; terraform site www_domain_name)`
 
 

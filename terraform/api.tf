@@ -1,5 +1,5 @@
 resource "aws_api_gateway_rest_api" "api" {
-  name        = "Website - Email"
+  name        = "${local.prefix_dash}api"
   description = "Captação de Emails"
 }
 

@@ -7,7 +7,7 @@ ses_client = boto3.client('ses')
 
 
 def send_email(event, context):
-    SENDER = "Pedro <pedro@taglivros.com.br>"
+    SENDER = "Pedro <raspro@raspro.com.br>"
     print(event)
     email = event
     data = [{"email": "pedrokvb@gmail.com"}]

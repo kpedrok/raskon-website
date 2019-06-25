@@ -306,13 +306,6 @@
               para e-commerce no mercado.</p>
           </div>
           <div class="col-lg-6 cta-btn-container text-center">
-            <!-- <form id="form" method="POST" action="https://u9rhq4o71f.execute-api.us-east-1.amazonaws.com/master/website_email">
-              <div>
-                <input type="text" class="cta-btn" name="email" placeholder="your@email.com">
-                <button type="submit">Cadastrar</button >
-                <button class="cta-btn align-middle" href="https://u9rhq4o71f.execute-api.us-east-1.amazonaws.com/master/website_email">Cadastrar</a>
-              </div>
-            </form>  -->
             <form id="form" method="GET" action="">
               <div>
                 <input type="text" STYLE="background-color: #72A4D2" class="cta-btn" name="email"
@@ -447,7 +440,7 @@
                   <li class="list-group-item">Custos de frete</li>
                   <li class="list-group-item">Prazos de entrega</li>
                 </ul>
-                <a href="#" class="btn">Solicitar</a>
+                <a href="#footer" class="btn">Solicitar</a>
               </div>
             </div>
           </div>
@@ -468,7 +461,7 @@
                   <li class="list-group-item">Notificações de status</li>
                   <li class="list-group-item">KPIs de entrega</li>
                 </ul>
-                <a href="#" class="btn">Solicitar</a>
+                <a href="#footer" class="btn">Solicitar</a>
               </div>
             </div>
           </div>
@@ -489,7 +482,7 @@
                   <li class="list-group-item">Relatórios de falhas na entrega</li>
                   <li class="list-group-item">E-mails de coleta</li>
                 </ul>
-                <a href="#" class="btn">Solicitar</a>
+                <a href="#footer" class="btn">Solicitar</a>
               </div>
             </div>
           </div>
@@ -573,6 +566,32 @@
             <div class="col-lg-6">
 
               <div class="form">
+                <form id="serverless-form" action="#">
+                  <!-- <div class="col-md-6 form-line"> -->
+                  <h4>Envie-nos uma mensagem</h4>
+                  <h4 id="status" style="display: none;">Sending message...</h4>
+                  <div class="form-group">
+                    <input type="text" class="form-control" autocomplete="given-name" id="firstname" name="firstname"
+                      placeholder="Nome" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" autocomplete="family-name" id="lastname" name="lastname"
+                      placeholder="Sobrenome" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" autocomplete="email" id="exampleInputEmail" name="email"
+                      placeholder="Email" required>
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" id="message" name="message" placeholder="Mensagem"
+                      required></textarea>
+                  </div>
+                  <div>
+                    <button type="submit" id="submit" class="btn btn-default submit"><i id="loader"
+                        class="fa fa-paper-plane" aria-hidden="true"></i> Enviar</button>
+                  </div>
+              </div>
+              <!-- </form>
 
                 <h4>Envie-nos uma mensagem</h4>
                 <p>Envie suas dúvidas, sugestões e críticas.</p>
@@ -603,16 +622,17 @@
                   <div id="errormessage"></div>
 
                   <div class="text-center"><button type="submit" title="Send Message">Enviar Mensagem</button></div>
-                </form>
-              </div>
-
+                </form> -->
             </div>
-
 
 
           </div>
 
+
+
         </div>
+
+      </div>
       </div>
 
       <div class="container">
@@ -649,10 +669,53 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <!-- Contact Form JavaScript File -->
-    <script src="contactform/contactform.js"></script>
+    <link href="contactform/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="images/favicon.ico" rel="icon">
+    <!-- <script src="contactform/js/jquery-1.11.1.min.js"></script> -->
+    <script src="contactform/js/bootstrap.min.js"></script>
 
     <!-- Template Main Javascript File -->
     <script src="js/main.js"></script>
+    <!-- 
+
+    <section id="contact">
+      <div class="section-content">
+      </div>
+      <div class="contact-section">
+        <div class="container">
+          <form id="serverless-form" action="#">
+            <div class="col-md-6 form-line">
+              <h4>Envie-nos uma mensagem</h4>
+              <h4 id="status" style="display: none;">Sending message...</h4>
+              <div class="form-group">
+                <input type="text" class="form-control" autocomplete="given-name" id="firstname" name="firstname"
+                  placeholder="Nome" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" autocomplete="family-name" id="lastname" name="lastname"
+                  placeholder="Sobrenome" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" autocomplete="email" id="exampleInputEmail" name="email"
+                  placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="message" name="message" placeholder="Mensagem" required></textarea>
+              </div>
+              <div>
+                <button type="submit" id="submit" class="btn btn-default submit"><i id="loader"
+                    class="fa fa-paper-plane" aria-hidden="true"></i> Enviar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+    </section> -->
+    <script>
+      var URL = "https://j3ue49ecwj.execute-api.us-east-1.amazonaws.com/development/sendMail";
+    </script>
+    <script src="contactform/js/script.js"></script>
+
 
 </body>
 

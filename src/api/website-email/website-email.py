@@ -7,10 +7,10 @@ ses_client = boto3.client('ses')
 
 
 def send_email(event, context):
-    SENDER = "Pedro <raspro@raspro.com.br>"
+    SENDER = "Pedro <pedrokvb@gmail.com>"
     print(event)
     email = event
-    data = [{"email": "pedrokvb@gmail.com"}]
+    data = [{"email": "contato@raspro.com.br"}]
     template_email_indicador_html = ('''
        <!DOCTYPE html>
        <html lang="en">
